@@ -1,49 +1,77 @@
+ts
 import { Injectable } from '@angular/core';
 
-export type TicketType = 'SP' | 'SG' | 'SE';
+type TipoSenha = 'SP' | 'SG' | 'SE';
 
-export interface Ticket {
-  id: string;
-  type: TicketType;
-  createdAt: Date;
-  attendedAt?: Date;
-  desk?: number;
+interface Ticket {
+  numero: string;
+  tipo: TipoSenha;
+  dataEmissao: Date;
+  atendida: boolean;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class TicketService {
-  private tickets: Ticket[] = [];
-  private counter = { SP: 0, SG: 0, SE: 0 };
 
-  generateTicket(type: TicketType): Ticket {
-    const now = new Date();
-    const yy = now.getFullYear().toString().slice(-2);
-    const mm = String(now.getMonth() + 1).padStart(2, '0');
-    const dd = String(now.getDate()).padStart(2, '0');
-    this.counter[type]++;
-    const id = `${yy}${mm}${dd}-${type}${String(this.counter[type]).padStart(3, '0')}`;
+  fila: Ticket[] = [];
+  chamadas: Ticket[] = [];
+  ultimaChamada: TipoSenha | null = null;
+  seq = { SP: 0, SG: 0, SE: 0 };
 
-    const ticket: Ticket = { id, type, createdAt: now };
-    this.tickets.push(ticket);
+  gerarSenha(tipo: TipoSenha): Ticket {
+    this.seq[tipo]++;
+    const hoje = new Date();
+
+    const numero = `${hoje.getFullYear().toString().slice(2)}${(hoje.getMonth()+1)
+      .toString().padStart(2,'0')}${hoje.getDate().toString().padStart(2,'0')}-${tipo}${this.seq[tipo]
+      .toString().padStart(2,'0')}`;
+
+    const ticket: Ticket = {
+      numero,
+      tipo,
+      dataEmissao: hoje,
+      atendida: false
+    };
+
+    this.fila.push(ticket);
     return ticket;
   }
 
-  getTickets(): Ticket[] {
-    return this.tickets;
-  }
+  chamarProximo(): Ticket | null {
+    if (this.fila.length === 0) return null;
 
-  attendNext(desk: number): Ticket | null {
-    const next = this.tickets.find(t => !t.attendedAt && t.type === 'SP')
-      || this.tickets.find(t => !t.attendedAt && t.type === 'SE')
-      || this.tickets.find(t => !t.attendedAt && t.type === 'SG');
+    let ordem: TipoSenha[] = [];
 
-    if (next) {
-      next.attendedAt = new Date();
-      next.desk = desk;
+    if (this.ultimaChamada === 'SP') {
+      ordem = ['SE', 'SG'];
+    } else {
+      ordem = ['SP'];
     }
-    return next || null;
+
+    for (let tipo of ordem) {
+      const index = this.fila.findIndex(t => t.tipo === tipo);
+      if (index !== -1) {
+        const ticket = this.fila.splice(index, 1)[0];
+        ticket.atendida = true;
+
+        this.chamadas.unshift(ticket);
+        this.chamadas = this.chamadas.slice(0, 5);
+
+        this.ultimaChamada = tipo;
+        return ticket;
+      }
+    }
+
+    // fallback
+    const ticket = this.fila.shift()!;
+    ticket.atendida = true;
+
+    this.chamadas.unshift(ticket);
+    this.chamadas = this.chamadas.slice(0, 5);
+
+    this.ultimaChamada = ticket.tipo;
+    return ticket;
   }
 }
-
