@@ -44,5 +44,8 @@ O sistema simula a organização de filas para entrada, retirada de brindes e at
 ![Tela de atendimento](doc/imagens/ticket.png)
 
 ### Tela 3 – Relatórios
+![Tela de relatórios](doc/imagens/contador.png)
+
+### Tela 4 – Cronograma
 ![Tela de relatórios](doc/imagens/cronograma.png)
 
