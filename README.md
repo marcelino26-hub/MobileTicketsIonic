@@ -38,7 +38,7 @@ O sistema simula a organização de filas para entrada, retirada de brindes e at
 ## 🖼️ Telas do Projeto
 
 ### Tela 1 – Emissão de Senhas
-![Tela de emissão de senhas](doc/imagens/login.png)
+![Tela de emissão de senhas](doc/imagens/login.png.webp)
 
 ### Tela 2 – Atendimento
 ![Tela de atendimento](doc/imagens/ticket.png)
