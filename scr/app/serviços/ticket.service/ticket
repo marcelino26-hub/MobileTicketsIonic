@@ -1,1 +1,77 @@
+ts
+import { Injectable } from '@angular/core';
 
+type TipoSenha = 'SP' | 'SG' | 'SE';
+
+interface Ticket {
+  numero: string;
+  tipo: TipoSenha;
+  dataEmissao: Date;
+  atendida: boolean;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class TicketService {
+
+  fila: Ticket[] = [];
+  chamadas: Ticket[] = [];
+  ultimaChamada: TipoSenha | null = null;
+  seq = { SP: 0, SG: 0, SE: 0 };
+
+  gerarSenha(tipo: TipoSenha): Ticket {
+    this.seq[tipo]++;
+    const hoje = new Date();
+
+    const numero = `${hoje.getFullYear().toString().slice(2)}${(hoje.getMonth()+1)
+      .toString().padStart(2,'0')}${hoje.getDate().toString().padStart(2,'0')}-${tipo}${this.seq[tipo]
+      .toString().padStart(2,'0')}`;
+
+    const ticket: Ticket = {
+      numero,
+      tipo,
+      dataEmissao: hoje,
+      atendida: false
+    };
+
+    this.fila.push(ticket);
+    return ticket;
+  }
+
+  chamarProximo(): Ticket | null {
+    if (this.fila.length === 0) return null;
+
+    let ordem: TipoSenha[] = [];
+
+    if (this.ultimaChamada === 'SP') {
+      ordem = ['SE', 'SG'];
+    } else {
+      ordem = ['SP'];
+    }
+
+    for (let tipo of ordem) {
+      const index = this.fila.findIndex(t => t.tipo === tipo);
+      if (index !== -1) {
+        const ticket = this.fila.splice(index, 1)[0];
+        ticket.atendida = true;
+
+        this.chamadas.unshift(ticket);
+        this.chamadas = this.chamadas.slice(0, 5);
+
+        this.ultimaChamada = tipo;
+        return ticket;
+      }
+    }
+
+    // fallback
+    const ticket = this.fila.shift()!;
+    ticket.atendida = true;
+
+    this.chamadas.unshift(ticket);
+    this.chamadas = this.chamadas.slice(0, 5);
+
+    this.ultimaChamada = ticket.tipo;
+    return ticket;
+  }
+}
