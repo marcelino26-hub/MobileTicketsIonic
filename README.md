@@ -17,10 +17,10 @@ Funcionalidades
 * Telas do Projeto
 
 ### Tela de Login
-![Login Screen](docs/images/login.png)
+![Login Screen](docs/images/login.png.webp)
 
 ### Tela de Eventos
-![Events Screen](docs/images/eventos.png)
+![Events Screen](docs/images/eventos.png.png)
 
 ### Tela de Ticket
 ![Ticket Screen](docs/images/ticket.png)
