@@ -38,11 +38,11 @@ O sistema simula a organização de filas para entrada, retirada de brindes e at
 ## 🖼️ Telas do Projeto
 
 ### Tela 1 – Emissão de Senhas
-![Tela de emissão de senhas](https://via.placeholder.com/400x250.png?text=Entrada+da+Festa)
+![Tela de emissão de senhas](doc/images/login.png)
 
 ### Tela 2 – Atendimento
-![Tela de atendimento](https://via.placeholder.com/400x250.png?text=Guiche+de+Atendimento)
+![Tela de atendimento](doc/images/ticket.png)
 
 ### Tela 3 – Relatórios
-![Tela de relatórios](https://via.placeholder.com/400x250.png?text=Relatorio+de+Convidados)
+![Tela de relatórios](doc/images/cronograma.png)
 
