@@ -1,0 +1,10 @@
+# Ignorar dependências
+node_modules/
+
+# Ignorar builds do Ionic
+www/
+dist/
+
+# Ignorar arquivos temporários
+*.log
+.DS_Store
