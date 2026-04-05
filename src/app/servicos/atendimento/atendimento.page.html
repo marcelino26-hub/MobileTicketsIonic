@@ -1,23 +1,28 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-title>Atendimento</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Chamar Próximo da Fila</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Nome do Atendente</ion-label>
+        <ion-input [(ngModel)]="nome" placeholder="Ex: João Silva"></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Nome</ion-label>
-    <ion-input [(ngModel)]="nome"></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label position="floating">Observação / Mensagem</ion-label>
+        <ion-textarea [(ngModel)]="mensagem" rows="3" placeholder="Ex: VIP - Entrada Principal"></ion-textarea>
+      </ion-item>
 
-  <ion-item>
-    <ion-label position="floating">Mensagem</ion-label>
-    <ion-textarea [(ngModel)]="mensagem"></ion-textarea>
-  </ion-item>
-
-  <ion-button expand="block" (click)="enviar()">
-    Enviar
-  </ion-button>
-
+      <ion-button expand="block" (click)="enviar()" color="primary" style="margin-top: 20px;">
+        Gerar Senha e Atender
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
