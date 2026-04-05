@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Sistema de Tickets</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Bem-vindo ao sistema 🚀
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item>
+    <ion-label position="floating">Título do Ticket</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Descrição</ion-label>
+    <ion-textarea></ion-textarea>
+  </ion-item>
+
+  <ion-button expand="full" (click)="criarTicket()">
+    Criar Ticket
+  </ion-button>
+
+</ion-content>
