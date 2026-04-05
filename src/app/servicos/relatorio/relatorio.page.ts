@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketService } from '../ticket/ticket.service';
+import { Ticket } from '../ticket/ticket.model';
 
 @Component({
   selector: 'app-relatorio',
@@ -7,13 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RelatorioPage implements OnInit {
 
-  atendimentos = [
-    { nome: 'João', mensagem: 'Problema no sistema' },
-    { nome: 'Maria', mensagem: 'Dúvida sobre cadastro' }
-  ];
+  tickets: Ticket[] = [];
 
-  constructor() { }
+  constructor(private ticketService: TicketService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.tickets = this.ticketService.listarTickets();
+  }
 
 }
