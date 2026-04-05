@@ -20,7 +20,7 @@ Funcionalidades
 ![Login Screen](docs/images/login.png)
 
 ### Tela de Eventos
-![Events Screen](docs/images/events.png)
+![Events Screen](docs/images/eventos.png)
 
 ### Tela de Ticket
 ![Ticket Screen](docs/images/ticket.png)
