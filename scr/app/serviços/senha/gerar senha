@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TicketService, Ticket } from '../services/ticket.service';
+import { TicketService, Ticket } from 'ticket.service';
 
 @Component({
   selector: 'app-tab1',
