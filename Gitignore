@@ -1,10 +1,8 @@
-# Ignorar dependências
+Gitignore
 node_modules/
-
-# Ignorar builds do Ionic
 www/
 dist/
-
-# Ignorar arquivos temporários
-*.log
+.angular/
+.idea/
+.vscode/
 .DS_Store
