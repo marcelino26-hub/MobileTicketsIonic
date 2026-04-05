@@ -28,9 +28,10 @@ O sistema simula a organização de filas para entrada, retirada de brindes e at
 
 ## 📂 Estrutura
 
-- `tab1`: Emissão de senhas (entrada da festa)
-- `tab2`: Atendimento (controle dos guichês)
-- `tab3`: Relatórios (quantidade de convidados atendidos e brindes entregues)
+- `tela 1`: Emissão de senhas (entrada da festa)
+- `tela 2`: Atendimento (controle dos guichês)
+- `tela 3`: Relatórios (quantidade de convidados atendidos)
+- `tela 4`: Cronogramas (horario dos eventos)
 - `services/ticket.service.ts`: Lógica de geração e atendimento de senhas
 
 ---
