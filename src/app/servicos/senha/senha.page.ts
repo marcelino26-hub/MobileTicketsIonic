@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketService } from '../ticket/ticket.service';
 
 @Component({
   selector: 'app-senha',
@@ -9,12 +10,15 @@ export class SenhaPage implements OnInit {
 
   senhaAtual: number = 0;
 
-  constructor() { }
+  constructor(private ticketService: TicketService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.senhaAtual = this.ticketService.getUltimaSenha();
+  }
 
   gerarSenha() {
-    this.senhaAtual++;
+    const ticket = this.ticketService.gerarTicket('Cliente', 'Atendimento geral');
+    this.senhaAtual = ticket.senha;
   }
 
 }
