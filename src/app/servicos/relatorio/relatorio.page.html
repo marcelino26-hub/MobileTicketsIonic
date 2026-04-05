@@ -1,19 +1,23 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Relatório</ion-title>
+  <ion-toolbar>
+    <ion-title>Relatório de Senhas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-card *ngIf="tickets.length === 0">
+    <ion-card-content class="ion-text-center">
+      <p>Nenhuma senha gerada ainda.</p>
+    </ion-card-content>
+  </ion-card>
 
-  <ion-list>
-    <ion-item *ngFor="let t of tickets">
+  <ion-list *ngIf="tickets.length > 0">
+    <ion-item *ngFor="let t of tickets; let i = index">
       <ion-label>
-        <h2>Senha: {{ t.senha }} - {{ t.nome }}</h2>
+        <h2><strong>Senha #{{ t.senha }}</strong> - {{ t.nome }}</h2>
         <p>{{ t.descricao }}</p>
-        <small>{{ t.data | date:'short' }}</small>
+        <p style="font-size: 12px; color: #888;">{{ t.data | date:'short' }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
-
 </ion-content>
