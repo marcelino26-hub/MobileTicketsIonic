@@ -32,7 +32,7 @@ O sistema simula a organização de filas para entrada, retirada de brindes e at
 - `tela 2`: Atendimento (controle dos guichês)
 - `tela 3`: Relatórios (quantidade de convidados atendidos)
 - `tela 4`: Cronogramas (horario dos eventos)
-- `services/ticket.service.ts`: Lógica de geração e atendimento de senhas
+
 
 ---
 
