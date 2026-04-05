@@ -16,17 +16,15 @@ export class AtendimentoPage implements OnInit {
   ngOnInit() {}
 
   enviar() {
-    if (this.nome && this.mensagem) {
-
-      const ticket = this.ticketService.gerarTicket(this.nome, this.mensagem);
-
-      alert(`Senha gerada: ${ticket.senha}`);
-
-      this.nome = '';
-      this.mensagem = '';
-
-    } else {
+    if (!this.nome || !this.mensagem) {
       alert('Preencha todos os campos!');
+      return;
     }
+
+    const ticket = this.ticketService.gerarTicket(this.nome, this.mensagem);
+    alert(` Senha gerada com sucesso!\n\nSenha: ${ticket.senha}\nNome: ${ticket.nome}\nDescrição: ${ticket.descricao}`);
+
+    this.nome = '';
+    this.mensagem = '';
   }
 }
