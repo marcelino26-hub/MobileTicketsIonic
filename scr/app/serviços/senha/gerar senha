@@ -1,1 +1,19 @@
+import { Component } from '@angular/core';
+import { TicketService, Ticket } from '../services/ticket.service';
+
+@Component({
+  selector: 'app-tab1',
+  templateUrl: 'tab1.page.html',
+  styleUrls: ['tab1.page.scss']
+})
+export class Tab1Page {
+  tickets: Ticket[] = [];
+
+  constructor(private ticketService: TicketService) {}
+
+  emit(type: 'SP' | 'SG' | 'SE') {
+    this.ticketService.generateTicket(type);
+    this.tickets = this.ticketService.getTickets();
+  }
+}
 
