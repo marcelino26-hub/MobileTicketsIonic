@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Tickets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Novo Ticket</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input [(ngModel)]="titulo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Descrição</ion-label>
+        <ion-textarea [(ngModel)]="descricao"></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="full" (click)="criarTicket()">
+        Criar Ticket
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let ticket of listaTickets">
+      <ion-label>
+        <h2>{{ ticket.titulo }}</h2>
+        <p>{{ ticket.descricao }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
