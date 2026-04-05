@@ -15,8 +15,12 @@ const routes: Routes = [
     loadChildren: () => import('./servicos/senha/senha.module').then(m => m.SenhaPageModule)
   },
   {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+  },
+  {
     path: '',
-    redirectTo: 'atendimento',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];
