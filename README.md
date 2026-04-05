@@ -19,10 +19,9 @@ O sistema simula a organização de filas para entrada, retirada de brindes e at
 
 ## 💻 Tecnologias
 
-- **Ionic Framework** (template: tabs)
-- **Angular**
-- **Capacitor**
-- **TypeScript**
+- Ionic
+- Angular
+- Capacitor
 
 ---
 
