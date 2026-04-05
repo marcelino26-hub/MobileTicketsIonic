@@ -1,4 +1,0 @@
-{
-  path: 'atendimento',
-  loadChildren: () => import('./servicos/atendimento/atendimento.module').then(m => m.AtendimentoPageModule)
-}
