@@ -7,10 +7,11 @@
 <ion-content class="ion-padding">
 
   <ion-list>
-    <ion-item *ngFor="let item of atendimentos">
+    <ion-item *ngFor="let t of tickets">
       <ion-label>
-        <h2>{{ item.nome }}</h2>
-        <p>{{ item.mensagem }}</p>
+        <h2>Senha: {{ t.senha }} - {{ t.nome }}</h2>
+        <p>{{ t.descricao }}</p>
+        <small>{{ t.data | date:'short' }}</small>
       </ion-label>
     </ion-item>
   </ion-list>
