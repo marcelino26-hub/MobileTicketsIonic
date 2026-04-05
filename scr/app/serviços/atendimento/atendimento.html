@@ -1,1 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Atendimento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-button expand="block" (click)="attend(1)">Atender no Guichê 1</ion-button>
+  <ion-button expand="block" (click)="attend(2)">Atender no Guichê 2</ion-button>
+
+  <div *ngIf="lastAttended">
+    <h2>Última Senha Atendida:</h2>
+    <p>{{lastAttended.id}} - Guichê {{lastAttended.desk}}</p>
+  </div>
+</ion-content>
 
