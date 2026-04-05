@@ -1,16 +1,13 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-title>Senha</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-
-  <h2>Senha atual:</h2>
-  <h1>{{ senhaAtual }}</h1>
+  <h1>Senha atual: {{ senhaAtual }}</h1>
 
   <ion-button expand="block" (click)="gerarSenha()">
     Gerar Nova Senha
   </ion-button>
-
 </ion-content>
