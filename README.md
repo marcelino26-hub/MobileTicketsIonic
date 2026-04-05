@@ -10,11 +10,8 @@ Funcionalidades
 - Listagem de eventos disponíveis
 - Compra e armazenamento de tickets digitais
 - Validação de tickets via QR Code
-- Integração com recursos nativos (notificações, câmera, etc.)
 
 ---
-
-* Telas do Projeto
 
 ### Tela de Login
 ![Login Screen](docs/images/login.png.webp)
