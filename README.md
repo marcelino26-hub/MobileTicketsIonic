@@ -1,7 +1,5 @@
 # MobileTicketsIonic
 
-Aplicativo desenvolvido em 'Ionic / Angular', com junção ao 'Capacitor', usando tabs como templete.  
-O objetivo do projeto é gerenciar tickets móveis, permitindo que usuários comprem, visualizem e validem ingressos diretamente pelo celular.
 
 ---
 
